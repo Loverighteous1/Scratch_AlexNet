@@ -11,87 +11,18 @@ Original file is located at
 ### Needful libraries
 """
 
-import torch as t
+import torch
 import torch.nn as nn
 import torch.optim as optim # it provides SGD and Adam
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-from torchvision import datasets
 #the DataLoader is a versatile tool in PyTorch that streamlines the data loading process,
 #supports efficient batch processing, facilitates data augmentation and normalization, and enables parallelism, contributing to smoother and faster model training.
+from torchvision import datasets
 
-datasets.CIFAR100
 
-"""### Data loading, preparation, and augmentation"""
-
-import tarfile
-import os
-
-# Define the path to the tarball file
-tar_path = '/content/drive/MyDrive/cifar-100-python.tar.gz'
-
-# Define the extraction path
-extract_path = '/content/cifar-100-python'
-
-# Create the extraction directory if it doesn't exist
-os.makedirs(extract_path, exist_ok=True)
-
-# Open and extract the tarball file
-with tarfile.open(tar_path, 'r:gz') as tar:
-    tar.extractall(path=extract_path)
-
-print("Extraction completed.")
-
-import os
-
-# List the contents of the extraction path
-extracted_files = os.listdir(extract_path)
-print("Extracted files:", extracted_files)
-
-# Define the path to the tarball file
-tar_path = '/content/drive/MyDrive/cifar-100-python.tar.gz'
-
-# Define the extraction path
-extract_path = '/content/drive/MyDrive/Computer Vision/cifar-100-python'
-
-# Create the extraction directory if it doesn't exist
-os.makedirs(extract_path, exist_ok=True)
-
-# Open and extract the tarball file
-with tarfile.open(tar_path, 'r:gz') as tar:
-    tar.extractall(path=extract_path)
-
-print("Extraction completed.")
-#import os
-
-# List the contents of the extraction path
-extracted_files = os.listdir(extract_path)
-print("Extracted files:", extracted_files)
-
-ls
-
-# Define the path to the tarball file
-tar_path = '/content/drive/MyDrive/cifar-10-python.tar.gz'
-
-# Define the extraction path
-extract_path = '/content/drive/MyDrive/Computer Vision/cifar-10-python'
-
-# Create the extraction directory if it doesn't exist
-os.makedirs(extract_path, exist_ok=True)
-
-# Open and extract the tarball file
-with tarfile.open(tar_path, 'r:gz') as tar:
-    tar.extractall(path=extract_path)
-
-print("Extraction completed.")
-#import os
-
-# List the contents of the extraction path
-extracted_files = os.listdir(extract_path)
-print("Extracted files:", extracted_files)
-
-!unzip "/content/drive/MyDrive/cifar-10-python.tar.gz"
+"""Data loading, preparation, and augmentation"""
 
 # Define data augmentation transformations
 transform_train = transforms.Compose([
@@ -127,7 +58,6 @@ The first two initialisation are done within a function
 
 2- Bias Initialization: The biases in the neural network were initialized to a constant value of 0.
  ******************************************************************************************************
-
 
 3- Learning Rate: The initial learning rate used in training the network was set to 0.01.
 
